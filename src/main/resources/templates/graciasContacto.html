@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+         layout:decorator="layout">
+
+ <section id="contact" class="section-padding" layout:fragment="contenido">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="ser-title">MENSAJE ENVIADO</h2>
+          <hr class="botm-line"></hr>
+        </div>
+        <div class="col-md-4 col-sm-4">
+
+          <div class="space"></div>
+          <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>Tu mensaje fue enviado. Gracias por contactarse con nosotros.</p>
+  
+        </div>
+        <div class="col-md-8 col-sm-8 marb20">
+          <div class="contact-info">
+            <div class="space"></div>
+  
+            <div id="errormessage"></div>
+    
+          <form  action="/recibirContacto" method="POST" class="contactForm">
+              <div class="form-group">
+                <input type="text" name="nombre" class="form-control br-radius-zero" id="name" th:value="${nombre1}" placeholder="Nombre" data-rule="minlen:4" data-msg="Este campo no puede estar vacio" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control br-radius-zero" name="email" id="email" th:value="${email1}" placeholder=" Email" data-rule="email" data-msg="Ingrese un email valido" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control br-radius-zero" name="asunto" id="subject" th:value="${asunto1}" placeholder="Asunto" data-rule="minlen:4" data-msg="Este campo no puede estar vacio" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control br-radius-zero" name="comentario" rows="5" data-rule="required" th:value="${comentario1}" data-msg="Este campo no puede estar vacio" placeholder="Mensaje"></textarea>
+                <div class="validation"></div>
+              </div>
+
+              <div class="form-action">
+                <button type="submit" class="btn btn-form">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</html>

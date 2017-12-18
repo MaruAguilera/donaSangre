@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+         layout:decorator="layout">
+
+  <div layout:fragment="contenido">    
+    <section id="cta-1" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="schedule-tab">
+          <div class="col-md-6 col-sm-6 bor-left">
+            <div class="mt-boxy-color"></div>
+            <div class="medi-info">
+              <h3>Urgencia</h3>
+              <p>Se necesitan dadores de sangre, grupo y factor indefinido, Hospital Garrahan</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 bor-left">
+          <div class="mt-boxy-color"></div>
+         	<div class="medi-info">
+              <h3>Urgencia</h3>
+              <p>Se necesitan dadores de sangre, grupo y factor indefinido, Hospital Aleman</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+ 
+  </section>
+ <section id="service" class="section-padding">
+    <div class="container">
+      <div class="row scrollLoco">
+        <div class="col-md-4 col-sm-4">
+          <h2 class="ser-title">Donde Donar?</h2>
+          <hr class="botm-line"></hr>
+          <p>El proposito de este sitio es brindar informacion acerca de donde donar sangre. 
+           La lista muestra la necesidad de dadores de sangre segun; tipo, factor, hospital y receptor.
+           Ademas, se muestran casos urgentes en donde es sumamente necesario la reposicion de sangre, 
+           generalmente hospitales en los cuales se este por agotar el stock de sangre. </p>
+        </div>
+			<div >	
+			   <form action="/donarBusqueda" method="POST">
+			   <div >
+				 <select name="busquedaHospital" th:value="${busquedaHospital1}" >
+				  <option>Elija un Hospital de la lista</option>
+				  <option>Hospital General Garrahan</option>
+				  <option>B. Rivadavia</option>
+				  <option>Santa Lucia</option>
+				  <option>Dr. T. Alvarez</option>
+				  <option>Donacion F. Santojanni</option>
+				  <option>D. Velez Sarsfield</option>
+				  <option>A. Zubizarreta</option>
+				  <option>Dr. C. Argerich	</option>
+				  <option>Dr. I. Pirovano</option>
+				  <option>Dr. E. Tornu</option>
+				  <option>J. M. Ramos Mejia</option>
+				  <option>Dr. C. Durand</option>
+				
+				</select>
+              
+                <button type="submit" class="btn btn-danger">Buscar</button>
+              </div>
+			   </form>	
+				
+				<div class="col-md-4" th:each="Pedido : ${listaPedido}" >
+					<hr class="botm-line"></hr>
+					<p th:text="${Pedido.tipo}"></p>
+					<p th:text="${Pedido.factor}"></p>
+					<p th:text="${Pedido.hospital}"></p>
+					<p th:text="${Pedido.receptor}"></p>
+        		</div>
+    		</div>    
+      </div>
+    </div>
+ </section>
+</div> 
+  
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<section id="testimonial" class="section-padding" layout:fragment="contenido">
+   <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="ser-title">Tu pedido de dadores fue procesado</h2>
+          <hr class="botm-line"></hr>
+        </div>
+        <div class="col-md-4 col-sm-4 marb20">
+          <div class="contact-info">
+            
+            <div class="space"></div>
+           
+            <div id="errormessage"></div>
+		 <form  action="/recibirPedido" method="POST">
+
+              <div class="form-group form-control">
+				<select name="hospital" th:value="${hospital1}">
+				  <option>Elija un Hospital de la lista</option>
+				  <option>Hospital General Garrahan</option>
+				  <option>B. Rivadavia</option>
+				  <option>Santa Lucia</option>
+				  <option>Dr. T. Alvarez</option>
+				  <option>Donación F. Santojanni</option>
+				  <option>D. Velez Sarsfield</option>
+				  <option>A. Zubizarreta</option>
+				  <option>Dr. C. Argerich	</option>
+				  <option>Dr. I. Pirovano</option>
+				  <option>Dr. E. Tornu</option>
+				  <option>J. M. Ramos Mejia</option>
+				  <option>Dr. C. Durand</option>
+				
+				</select>
+              </div>
+              
+              <div class="form-group form-control">
+				<select name="tipo" th:value="${tipo1}">
+				  <option>Elija el tipo de sangre</option>
+				  <option>A</option>
+				  <option>AB</option>
+				  <option>B</option>
+				  <option>0</option>
+				</select>
+               </div>
+               <div class="form-group form-control">
+				<select name="factor" th:value="${factor1}">
+				  <option>Elija el factor</option>
+				  <option>RH+</option>
+				  <option>RH-</option>
+				  <option>RH0</option>
+				  <option>RHnull</option>
+				</select>
+               </div>
+
+               <div class="form-group">
+                <input type="text" class="form-control br-radius-zero" name="receptor" th:value="${receptor1}" id="subjcet" placeholder="Nombre y Apellido del receptor" />
+                <div class="validation"></div>
+              </div>
+
+
+               <div class="form-action">
+                <button type="submit" class="btn btn-danger">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+         <div class="col-md-8 col-sm-8">
+        	<img alt="donacion" src="../img/donsangredonarvida.jpg"></img>
+        </div>
+      </div>
+    </div>
+</section>
+
+  
+</html>
