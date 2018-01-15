@@ -32,7 +32,7 @@ public class PrimerController {
 	JdbcTemplate jdbcTemplate;
 
 	//rutas de tempplates 
-	@GetMapping("/index")
+	@GetMapping("/")
 	public static String paginaPrincipal(Model template) {
 		
 		return "index";
